@@ -5,10 +5,20 @@
 # such as the custom file.
 
 log(){
-    MESSAGE=$1
-    echo `data`","$MESSAGE
+    TYPE=$1
+    MESSAGE=$2
+    ACTION=$3
+    echo " "`date +%Y%m%d" "%T`","$TYPE","$MESSAGE","$ACTION
 }
 
+create_unix_user(){
 
+}
 
+in_progress_logo(){
 
+}
+
+in_progress_bar(){
+
+}
