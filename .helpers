@@ -15,18 +15,23 @@ log(){
 
 # Man output
 SCRIPT_HEADSIZE=$(head -200 man |grep -n "^# END_OF_HEADER" | cut -f1 -d:)
-SCRIPT_NAME="$(basename man)"
 MAN_FILE=man
 
 usage(){ 
+    SCRIPT_NAME=$1
+    echo $RED
     printf "Usage: "; head -${SCRIPT_HEADSIZE:-99} $MAN_FILE | grep -e "^#+" | sed -e "s/^#+[ ]*//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g" 
 }
 
 usagefull(){ 
+    SCRIPT_NAME=$1
+    echo $RED
     head -${SCRIPT_HEADSIZE:-99} $MAN_FILE | grep -e "^#[%+-]" | sed -e "s/^#[%+-]//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g" 
 }
 
 scriptinfo(){ 
+    SCRIPT_NAME=$1
+    echo $RED
     head -${SCRIPT_HEADSIZE:-99} $MAN_FILE | grep -e "^#-" | sed -e "s/^#-//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g"; 
 }
 

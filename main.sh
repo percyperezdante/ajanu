@@ -14,6 +14,6 @@
 # ---------------------------------------
 #  Start
 
-usage
-usagefull
-scriptinfo
+usage $0
+usagefull $0
+scriptinfo $0
