@@ -1,4 +1,5 @@
-
+#!/bin/bash
+#
 # This file contains a menu of pre-defined functions you may call from your main script.
 # The functions on this file are though to be use for most of the applications, such as logs.
 # However, if you have a particular function, I would suggest to write them in a separate file
@@ -11,14 +12,34 @@ log(){
     echo " "`date +%Y%m%d" "%T`","$TYPE","$MESSAGE","$ACTION
 }
 
-create_unix_user(){
 
+# Man output
+SCRIPT_HEADSIZE=$(head -200 man |grep -n "^# END_OF_HEADER" | cut -f1 -d:)
+SCRIPT_NAME="$(basename man)"
+MAN_FILE=man
+
+usage(){ 
+    printf "Usage: "; head -${SCRIPT_HEADSIZE:-99} $MAN_FILE | grep -e "^#+" | sed -e "s/^#+[ ]*//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g" 
+}
+
+usagefull(){ 
+    head -${SCRIPT_HEADSIZE:-99} $MAN_FILE | grep -e "^#[%+-]" | sed -e "s/^#[%+-]//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g" 
+}
+
+scriptinfo(){ 
+    head -${SCRIPT_HEADSIZE:-99} $MAN_FILE | grep -e "^#-" | sed -e "s/^#-//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g"; 
+}
+
+
+create_unix_user(){
+    date
 }
 
 in_progress_logo(){
-
+    date
 }
 
 in_progress_bar(){
-
+    date
 }
+

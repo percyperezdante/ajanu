@@ -1,6 +1,6 @@
 
 
 install_jenkins(){
-
+date
 }
 
